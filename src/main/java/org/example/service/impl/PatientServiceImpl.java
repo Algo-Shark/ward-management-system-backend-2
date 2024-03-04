@@ -21,7 +21,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public PatientDto addPatient(PatientDto patientDto) {
         Patient patient = modelMapper.map(patientDto, Patient.class);
-        if(patient != null){
+        if(patient!=null){
             Patient patient1 = patientRepository.save(patient);
             String userid = patient1.generatepatientId();
             patient1.setPatientId(userid);
