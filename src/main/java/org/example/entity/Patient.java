@@ -23,15 +23,4 @@ public class Patient {
     private String dob;
 
 
-    public String generatepatientId() {
-        if (id != null) {
-            this.patientId = "PT" + id; // Example prefix + auto-generated ID
-            return patientId;
-        } else {
-            // Handle the case where the ID is not set yet
-            // This might happen if the object is not persisted yet
-            this.patientId = "PT1";
-        }
-        return null;
-    }
 }

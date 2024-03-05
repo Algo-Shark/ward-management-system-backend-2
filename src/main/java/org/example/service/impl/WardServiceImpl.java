@@ -29,4 +29,15 @@ public class WardServiceImpl implements WardService {
         }
         return null;
     }
+
+    @Override
+    public String generateWardId() {
+        Long id = wardRepository.findMaxId();
+        if(id!=null){
+            ++id;
+            return "WD"+id;
+        }else {
+            return "WD"+1;
+        }
+    }
 }

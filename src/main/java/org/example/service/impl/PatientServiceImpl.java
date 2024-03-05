@@ -23,12 +23,20 @@ public class PatientServiceImpl implements PatientService {
         Patient patient = modelMapper.map(patientDto, Patient.class);
         if(patient!=null){
             Patient patient1 = patientRepository.save(patient);
-            String userid = patient1.generatepatientId();
-            patient1.setPatientId(userid);
             patientRepository.save(patient1);
             PatientDto patientDto1 = modelMapper.map(patient1,PatientDto.class);
             return patientDto1;
         }
         return null;
+    }
+
+    public String generatePatientId(){
+        Long id = patientRepository.findMaxId();
+        if(id!=null){
+            ++id;
+            return "PT"+id;
+        }else {
+            return "PT"+1;
+        }
     }
 }

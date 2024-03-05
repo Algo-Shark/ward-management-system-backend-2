@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class PatientDto {
+    private String patientId;
     private String name;
     private String nic;
     private String nationality;
@@ -17,5 +18,5 @@ public class PatientDto {
     private String religion;
     private String address;
     private String dob;
-    private String patientId;
+
 }

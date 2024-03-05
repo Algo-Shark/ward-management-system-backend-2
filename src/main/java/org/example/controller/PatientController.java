@@ -24,4 +24,11 @@ public class PatientController {
             return new ResponseEntity<>(customResponse, HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/get")
+    public ResponseEntity<CustomResponse<String>> getLastId(){
+        String s = patientService.generatePatientId();
+        CustomResponse<String> customResponse = new CustomResponse<>(s, "Success");
+        return new ResponseEntity<>(customResponse, HttpStatus.OK);
+    }
 }
