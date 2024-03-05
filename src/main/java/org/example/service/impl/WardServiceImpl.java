@@ -6,6 +6,7 @@ import org.example.entity.Ward;
 import org.example.repository.WardRepository;
 import org.example.service.WardService;
 import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,8 @@ import org.springframework.stereotype.Service;
 public class WardServiceImpl implements WardService {
     final WardRepository wardRepository;
     ModelMapper modelMapper;
-    public void setUp(){
+    @Bean
+    public void set(){
         this.modelMapper = new ModelMapper();
     }
     @Override
