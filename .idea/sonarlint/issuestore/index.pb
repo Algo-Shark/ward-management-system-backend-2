@@ -38,3 +38,9 @@ h
 8src/main/java/org/example/controller/WardController.java,5\b\5b58dfa9ca498f0402924d7449db26f1fbce7f11
 k
 ;src/main/java/org/example/repository/PatientRepository.java,0\7\07e06fa9526d5d330985a48d783c8465256f1771
+e
+5src/main/java/org/example/service/PatientService.java,f\c\fc625927e5b85df0fdf0902e63a7aa4c7c222ad2
+]
+-src/main/java/org/example/dto/PatientDto.java,4\b\4bd6f57aba719848c7fc5d7b7b0a8b95f19d2101
+Z
+*src/main/java/org/example/dto/WardDto.java,d\4\d4a040022409d34c32e98ea88a9875ecf9de980c

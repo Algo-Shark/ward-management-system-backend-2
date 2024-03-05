@@ -19,6 +19,7 @@ public class Bed {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
+    private String bed_id;
     private String status;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wardId")
