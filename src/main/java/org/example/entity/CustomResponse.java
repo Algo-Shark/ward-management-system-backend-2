@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CustomResponse {
+public class CustomResponse<T> {
         private String userId;
         private String status;
 
