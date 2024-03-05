@@ -21,4 +21,14 @@ public class Ward {
     private String wardType;
     @OneToMany(mappedBy = "ward", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Bed> bedList = new ArrayList<>();
+
+
+    public String generateWardId(){
+        if(id!=null){
+            this.wardId="WD"+id;
+            return wardId;
+        }else {
+            return "WD1";
+        }
+    }
 }
