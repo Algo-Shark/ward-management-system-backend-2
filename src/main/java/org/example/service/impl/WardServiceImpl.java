@@ -1,5 +1,4 @@
 package org.example.service.impl;
-
 import lombok.RequiredArgsConstructor;
 import org.example.dto.WardDto;
 import org.example.entity.Ward;
