@@ -1,0 +1,14 @@
+package org.example.dto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class AdmissionRequest {
+    private AdmissionDto admissionDto;
+    private String patinetId;
+    private String wardId;
+    private String bedId;
+    private String shiftId;
+}
