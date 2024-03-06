@@ -56,3 +56,5 @@ c
 3src/main/java/org/example/dto/AdmissionRequest.java,0\1\01195615a8e94c9f898f19285bdbc79ca7eee8ce
 _
 /src/main/java/org/example/dto/AdmissionDto.java,c\b\cb5d7951821833dee31996d3d4111bbb26fe691e
+m
+=src/main/java/org/example/repository/AdmissionRepository.java,7\9\7910fa2536c44807ee413f9d6ac83bf303df37a6
