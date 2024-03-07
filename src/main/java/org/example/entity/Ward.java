@@ -16,6 +16,15 @@ public class Ward {
     private String wardId;
     private int capacity;
     private String wardType;
+
     @OneToMany(mappedBy = "ward", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Bed> bedList = new ArrayList<>();
+    @OneToMany(mappedBy = "ward", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Admission> admissionList = new ArrayList<>();
+
+    public Ward(String wardId, int capacity, String wardType) {
+        this.wardId = wardId;
+        this.capacity = capacity;
+        this.wardType = wardType;
+    }
 }

@@ -9,6 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @NoArgsConstructor
 @Data
 public class BedDto {
-    private String bed_id;
+    private String bedId;
     private String status;
 }

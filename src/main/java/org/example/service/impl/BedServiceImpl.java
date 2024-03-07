@@ -22,7 +22,7 @@ public class BedServiceImpl implements BedService {
     @Override
     public Bed addBed(BedDto bedDto, String wardId) {
         Ward ward = wardRepository.findBywardId(wardId);
-        Bed bed = modelMapper.map(bedDto,Bed.class);
+        Bed bed = new Bed(bedDto.getBedId(),bedDto.getStatus());
         if(ward!=null){
             bed.setWard(ward);
             ward.getBedList().add(bed);

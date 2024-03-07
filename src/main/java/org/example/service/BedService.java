@@ -5,5 +5,5 @@ import org.example.entity.Bed;
 
 public interface BedService {
     Bed addBed(BedDto bedDto, String wardId);
-    public String generateBedId();
+    String generateBedId();
 }
