@@ -1,13 +1,10 @@
 package org.example.entity;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -19,16 +16,15 @@ public class Ward {
     private String wardId;
     private int capacity;
     private String wardType;
+
     @OneToMany(mappedBy = "ward", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Bed> bedList = new ArrayList<>();
+    @OneToMany(mappedBy = "ward", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Admission> admissionList = new ArrayList<>();
 
-
-    public String generateWardId(){
-        if(id!=null){
-            this.wardId="WD"+id;
-            return wardId;
-        }else {
-            return "WD1";
-        }
+    public Ward(String wardId, int capacity, String wardType) {
+        this.wardId = wardId;
+        this.capacity = capacity;
+        this.wardType = wardType;
     }
 }

@@ -20,10 +20,11 @@ public class PatientServiceImpl implements PatientService {
     }
     @Override
     public PatientDto addPatient(PatientDto patientDto) {
-        Patient patient = modelMapper.map(patientDto, Patient.class);
+        Patient patient = new Patient(patientDto.getPatientId(),patientDto.getName(),
+                patientDto.getNic(),patientDto.getNationality(),patientDto.getGender()
+                ,patientDto.getTelephone(),patientDto.getTelephone(),patientDto.getReligion(),patientDto.getDob());
         if(patient!=null){
             Patient patient1 = patientRepository.save(patient);
-            patientRepository.save(patient1);
             PatientDto patientDto1 = modelMapper.map(patient1,PatientDto.class);
             return patientDto1;
         }

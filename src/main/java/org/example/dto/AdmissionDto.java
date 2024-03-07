@@ -3,12 +3,14 @@ package org.example.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BedDto {
-    private String bedId;
+public class AdmissionDto {
+    private String admissionId;
+    private String admitDate;
+    private String admitReson;
     private String status;
+    private String Gurdient_name;
 }
