@@ -9,5 +9,6 @@ public interface PatientRepository extends JpaRepository<Patient,Long> {
     @Query("SELECT MAX(p.id) FROM Patient p")
     Long findMaxId();
 
-    Patient findBypatientId(String patinetId);
+    Patient findByPatientId(String patinetId);
+
 }

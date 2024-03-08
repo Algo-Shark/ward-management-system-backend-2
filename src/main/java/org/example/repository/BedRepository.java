@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface BedRepository extends JpaRepository<Bed,Long> {
     @Query("SELECT MAX(b.id) FROM Bed b")
     Long findMaxId();
+    Bed findByBedId(String bedId);
 
 }

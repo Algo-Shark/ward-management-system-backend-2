@@ -19,11 +19,10 @@ public class WardServiceImpl implements WardService {
     }
     @Override
     public WardDto addWard(WardDto wardDto) {
-        Ward ward = modelMapper.map(wardDto,Ward.class);
+
+        Ward ward = new Ward(wardDto.getWardId(),wardDto.getCapacity(),wardDto.getWardType());
         if(ward!=null){
             Ward ward1 = wardRepository.save(ward);
-            ward1.setWardId(ward.generateWardId());
-            wardRepository.save(ward1);
             WardDto wardDto1 = modelMapper.map(ward1,WardDto.class);
             return wardDto1;
         }

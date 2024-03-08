@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -23,6 +26,9 @@ public class Patient {
     private String dob;
     @Lob
     private byte[] qrCodeData;
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Admission> admissionsList = new ArrayList<>();
 
     public Patient(String patientId, String name, String nic, String nationality, String gender, String telephone, String religion, String address, String dob) {
         this.patientId = patientId;

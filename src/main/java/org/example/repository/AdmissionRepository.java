@@ -1,14 +1,13 @@
 package org.example.repository;
 
-import org.example.entity.Ward;
+import org.example.entity.Admission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface WardRepository extends JpaRepository<Ward,Long> {
+public interface AdmissionRepository extends JpaRepository<Admission, Long> {
 
-    Ward findBywardId(String wardId);
-    @Query("SELECT MAX(w.id) FROM Ward w")
+    @Query("SELECT MAX(a.id) FROM Admission a")
     Long findMaxId();
 }
