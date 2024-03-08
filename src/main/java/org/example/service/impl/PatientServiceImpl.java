@@ -8,6 +8,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PatientServiceImpl implements PatientService {
@@ -39,5 +43,20 @@ public class PatientServiceImpl implements PatientService {
         }else {
             return "PT"+1;
         }
+    }
+
+    @Override
+    public List<Patient> getPatients() {
+        List<Patient> list =new ArrayList<>();
+
+        Iterable<Patient> iterableList = patientRepository.findAll();
+        Iterator<Patient> iteratorList = iterableList.iterator();
+
+        while(iteratorList.hasNext()){
+            Patient entity = iteratorList.next();
+            Patient patient = modelMapper.map(entity,Patient.class);
+            list.add(patient);
+        }
+        return list;
     }
 }

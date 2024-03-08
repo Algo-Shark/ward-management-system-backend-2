@@ -1,6 +1,7 @@
 package org.example.controller;
 import org.example.dto.PatientDto;
 import org.example.entity.CustomResponse;
+import org.example.entity.Patient;
 import org.example.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,5 +31,11 @@ public class PatientController {
         String s = patientService.generatePatientId();
         CustomResponse<String> customResponse = new CustomResponse<>(s, "Success");
         return new ResponseEntity<>(customResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/get/all-patients")
+
+    public Iterable<Patient> getAllPatients(){
+        return patientService.getPatients();
     }
 }
