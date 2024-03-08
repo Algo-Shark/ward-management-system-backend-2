@@ -10,4 +10,5 @@ public interface PatientRepository extends JpaRepository<Patient,Long> {
     Long findMaxId();
 
     Patient findByPatientId(String patinetId);
+
 }

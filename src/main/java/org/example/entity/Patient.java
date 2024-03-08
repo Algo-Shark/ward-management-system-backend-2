@@ -24,6 +24,8 @@ public class Patient {
     private String religion;
     private String address;
     private String dob;
+    @Lob
+    private byte[] qrCodeData;
 
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Admission> admissionsList = new ArrayList<>();
