@@ -1,4 +1,4 @@
-package org.example.entity;
+package org.example.dto.responseDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

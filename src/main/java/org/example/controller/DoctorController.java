@@ -1,6 +1,7 @@
 package org.example.controller;
 import org.example.dto.DoctorDto;
-import org.example.entity.CustomResponse;
+import org.example.dto.requestDto.DoctorStatusUpdateRequest;
+import org.example.dto.responseDto.CustomResponse;
 import org.example.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,10 +32,10 @@ public class DoctorController {
     public ResponseEntity<CustomResponse<String>> getLastId(){
         String doctorId = doctorService.generateDoctorId();
         if(doctorId!=null){
-            CustomResponse<String> customResponse = new CustomResponse(doctorId,"success");
+            CustomResponse<String> customResponse = new CustomResponse(doctorId,"true");
             return new ResponseEntity<>(customResponse,HttpStatus.OK);
         }else {
-            CustomResponse<String> customResponse = new CustomResponse<>("null","unsuccess");
+            CustomResponse<String> customResponse = new CustomResponse<>("null","false");
             return new ResponseEntity<>(customResponse,HttpStatus.BAD_REQUEST);
         }
     }
@@ -48,6 +49,16 @@ public class DoctorController {
         }else {
             CustomResponse<String> customResponse = new CustomResponse<>("-1","unsuccess");
             return new ResponseEntity<>(customResponse,HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/status")
+    public ResponseEntity<String> updateDoctorStatus(@RequestBody DoctorStatusUpdateRequest request){
+        try{
+            doctorService.updateDoctorStatus(request.getDoctorId(), request.getNewStatus());
+            return ResponseEntity.ok("Doctor status updated successfully");
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update doctor status");
         }
     }
 }

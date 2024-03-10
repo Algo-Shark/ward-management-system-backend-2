@@ -1,13 +1,14 @@
 package org.example.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.databind.annotation.EnumNaming;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.enums.DoctorAvailability;
 import org.springframework.http.ResponseEntity;
+
+import java.lang.reflect.Type;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,10 +23,11 @@ public class Doctor {
     private String nic;
     private String dob;
     private String specialization;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private DoctorAvailability status;
     private String gender;
 
-    public Doctor(String doctorId, String name, String nic, String dob, String specialization, String status, String gender) {
+    public Doctor(String doctorId, String name, String nic, String dob, String specialization, DoctorAvailability status, String gender) {
         this.doctorId = doctorId;
         this.name = name;
         this.nic = nic;

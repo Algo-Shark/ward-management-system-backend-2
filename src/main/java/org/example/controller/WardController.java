@@ -1,9 +1,7 @@
 package org.example.controller;
 
-import lombok.AllArgsConstructor;
-import org.example.dto.PatientDto;
 import org.example.dto.WardDto;
-import org.example.entity.CustomResponse;
+import org.example.dto.responseDto.CustomResponse;
 import org.example.service.WardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.DoctorDto;
 import org.example.entity.Doctor;
+import org.example.enums.DoctorAvailability;
 import org.example.repository.DoctorRepository;
 import org.example.service.DoctorService;
 import org.modelmapper.ModelMapper;
@@ -51,5 +52,17 @@ public class DoctorServiceImpl implements DoctorService {
             return count;
         }
         return -1;
+    }
+
+    @Override
+    public boolean updateDoctorStatus(String doctorId, DoctorAvailability doctorAvailability) {
+        Doctor findsDoctor = doctorRepository.findBydoctorId(doctorId);
+        if(findsDoctor!=null){
+            findsDoctor.setStatus(doctorAvailability);
+            doctorRepository.save(findsDoctor);
+            return true;
+        }else {
+            return false;
+        }
     }
 }

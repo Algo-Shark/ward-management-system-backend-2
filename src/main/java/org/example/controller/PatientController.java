@@ -1,6 +1,6 @@
 package org.example.controller;
 import org.example.dto.PatientDto;
-import org.example.entity.CustomResponse;
+import org.example.dto.responseDto.CustomResponse;
 import org.example.entity.Patient;
 import org.example.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
