@@ -44,4 +44,12 @@ public class DoctorServiceImpl implements DoctorService {
             return "DC1";
         }
     }
+
+    public int availabelDoctorCount(String status){
+        int count = doctorRepository.countDoctorsByStatus(status);
+        if(count>=0){
+            return count;
+        }
+        return -1;
+    }
 }

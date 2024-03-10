@@ -39,4 +39,15 @@ public class DoctorController {
         }
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<CustomResponse<String>> getDoctorCount(){
+        int doctorCount = doctorService.availabelDoctorCount("AVAILABLE");
+        if(doctorCount>=0){
+            CustomResponse<String> customResponse = new CustomResponse<>(doctorCount+"","success");
+            return new ResponseEntity<>(customResponse,HttpStatus.OK);
+        }else {
+            CustomResponse<String> customResponse = new CustomResponse<>("-1","unsuccess");
+            return new ResponseEntity<>(customResponse,HttpStatus.BAD_REQUEST);
+        }
+    }
 }
