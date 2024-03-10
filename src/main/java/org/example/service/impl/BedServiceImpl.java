@@ -16,7 +16,7 @@ public class BedServiceImpl implements BedService {
     final BedRepository bedRepository;
     ModelMapper modelMapper;
     @Bean
-    public void setbed(){
+    public void mapBed(){
         this.modelMapper = new ModelMapper();
     }
     @Override
