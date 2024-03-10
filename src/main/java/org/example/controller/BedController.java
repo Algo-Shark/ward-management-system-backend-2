@@ -25,7 +25,7 @@ public class BedController {
             CustomResponse<String> customResponse = new CustomResponse<>("BD"+bedDto1.getId(), "Success");
             return new ResponseEntity<>(customResponse, HttpStatus.OK);
         }else {
-            CustomResponse<String> customResponse = new CustomResponse<>("Alredy registerd","Unsuccessful");
+            CustomResponse<String> customResponse = new CustomResponse<>("The ward capacity is fulfill can't added new bed","Unsuccessful");
             return new ResponseEntity<>(customResponse, HttpStatus.BAD_REQUEST);
         }
     }
