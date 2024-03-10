@@ -37,7 +37,7 @@ public class QRCodeGeneratorService {
         return byteArrayOutputStream.toByteArray();
     }
     public void saveQRCodeData(String patinetId,byte[] qrCodeData){
-        Patient patient = patientRepository.findBypatientId(patinetId);
+        Patient patient = patientRepository.findByPatientId(patinetId);
         if(patient!=null){
             patient.setQrCodeData(qrCodeData);
             patientRepository.save(patient);

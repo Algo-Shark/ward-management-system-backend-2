@@ -40,7 +40,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     public PatientDto getPatientDetailsById(String patientId){
-        Patient patient = patientRepository.findBypatientId(patientId);
+        Patient patient = patientRepository.findByPatientId(patientId);
         if(patient!=null) {
             PatientDto patientDto = modelMapper.map(patient, PatientDto.class);
             return patientDto;
