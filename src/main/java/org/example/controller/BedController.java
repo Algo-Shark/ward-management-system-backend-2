@@ -1,7 +1,7 @@
 package org.example.controller;
 import org.example.dto.BedDto;
 import org.example.entity.Bed;
-import org.example.entity.CustomResponse;
+import org.example.dto.responseDto.CustomResponse;
 import org.example.service.BedService;
 import org.example.service.WardService;
 import org.springframework.beans.factory.annotation.Autowired;

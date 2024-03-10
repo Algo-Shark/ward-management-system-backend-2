@@ -1,8 +1,7 @@
 package org.example.controller;
 import org.example.dto.AdmissionDto;
 import org.example.dto.AdmissionRequest;
-import org.example.entity.Admission;
-import org.example.entity.CustomResponse;
+import org.example.dto.responseDto.CustomResponse;
 import org.example.service.AdmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

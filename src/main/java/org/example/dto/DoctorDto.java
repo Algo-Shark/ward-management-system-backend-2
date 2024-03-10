@@ -3,6 +3,7 @@ package org.example.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.enums.DoctorAvailability;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,6 +14,6 @@ public class DoctorDto {
     private String nic;
     private String dob;
     private String specialization;
-    private String status;
+    private DoctorAvailability status;
     private String gender;
 }
