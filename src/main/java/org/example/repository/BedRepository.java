@@ -10,4 +10,5 @@ public interface BedRepository extends JpaRepository<Bed,Long> {
     Long findMaxId();
     Bed findByBedId(String bedId);
 
+
 }
