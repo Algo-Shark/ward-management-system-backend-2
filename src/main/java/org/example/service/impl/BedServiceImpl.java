@@ -2,7 +2,10 @@ package org.example.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.BedDto;
 import org.example.entity.Bed;
+import org.example.entity.Doctor;
 import org.example.entity.Ward;
+import org.example.enums.BedStatus;
+import org.example.enums.DoctorAvailability;
 import org.example.repository.BedRepository;
 import org.example.repository.WardRepository;
 import org.example.service.BedService;
@@ -41,6 +44,18 @@ public class BedServiceImpl implements BedService {
             return "BD"+id;
         }else {
             return "BD"+1;
+        }
+    }
+
+    @Override
+    public boolean updateBedStatus(String bedId, BedStatus bedStatus) {
+        Bed findsBed = bedRepository.findByBedId(bedId);
+        if(findsBed!=null){
+            findsBed.setStatus(bedStatus);
+            bedRepository.save(findsBed);
+            return true;
+        }else {
+            return false;
         }
     }
 }

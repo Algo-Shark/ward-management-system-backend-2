@@ -1,14 +1,15 @@
-package org.example.dto;
+package org.example.dto.requestDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.entity.Bed;
 import org.example.enums.BedStatus;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BedDto {
+public class BedStatusUpdateRequest {
     private String bedId;
-    private BedStatus status;
+    private BedStatus newStatus;
+
+
 }

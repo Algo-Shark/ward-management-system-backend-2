@@ -3,7 +3,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.enums.BedStatus;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,14 +22,15 @@ public class Bed {
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
     private String bedId;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private BedStatus status;
     @ManyToOne(fetch = FetchType.LAZY)
     private Ward ward;
 
     @OneToMany(mappedBy = "bed", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Admission> admissionList = new ArrayList<>();
 
-    public Bed(String bedId, String status) {
+    public Bed(String bedId, BedStatus status) {
         this.bedId = bedId;
         this.status = status;
     }

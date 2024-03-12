@@ -1,5 +1,6 @@
 package org.example.controller;
 import org.example.dto.BedDto;
+import org.example.dto.requestDto.BedStatusUpdateRequest;
 import org.example.entity.Bed;
 import org.example.dto.responseDto.CustomResponse;
 import org.example.service.BedService;
@@ -35,5 +36,15 @@ public class BedController {
         String s = bedService.generateBedId();
         CustomResponse<String> customResponse = new CustomResponse<>(s, "Success");
         return new ResponseEntity<>(customResponse, HttpStatus.OK);
+    }
+
+    @PutMapping("/status")
+    public ResponseEntity<String> updateBedStatus(@RequestBody BedStatusUpdateRequest request){
+        try{
+            bedService.updateBedStatus(request.getBedId(),request.getNewStatus());
+            return ResponseEntity.ok("Bed status updated successfully");
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update bed status");
+        }
     }
 }
